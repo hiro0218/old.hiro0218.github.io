@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>input-numeric.js</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<style>
-		body {
-			padding: 2em;
-		}
-	</style>
-	<script src="https://rawgit.com/hiro0218/input-numeric.js/master/dist/input-numeric.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>input-numeric.js</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+        padding: 2em;
+    }
+    </style>
+    <script src="https://raw.githack.com/hiro0218/input-numeric.js/master/dist/input-numeric.js"></script>
 </head>
-
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-6">
-				<div class="form-inline">
-					<div class="form-group">
-						<input type="text" class="input-numeric form-control" value="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script>
-		InputNumeric.set("input-numeric");
-	</script>
-</body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="input-numeric form-control" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+    InputNumeric.set({
+        inputName: 'input-numeric',
+        comma: true,
+        negative: true
+    });
+    </script>
+
+</body>
 </html>
