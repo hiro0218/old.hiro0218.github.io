@@ -21,14 +21,14 @@ $color700:#616161;
 $color800:#424242;
 $color900:#212121;
 
-$text-color: $color900;
-$bg-color: $color200;
+$text-color: $color200;
+$bg-color: $color800;
 
 /////
 
-@include selection {
-    background: $color300;
-}
+// @include selection {
+//     background: $color300;
+// }
 
 html {
     font-size: $font-size-root;
@@ -55,6 +55,7 @@ body {
     }
     color: $text-color;
     background-color: $bg-color;
+    @include user-select(none);
 }
 
 /////
@@ -75,12 +76,47 @@ body {
 }
 
 .login-logo {
-    img {
+    margin-bottom: 1rem;
+    svg {
         @include size($size-base * 16);
-        border:1px solid #333;
+        fill: $color600;
+    }
+}
+
+
+.form-group {
+    font-size: .85em;
+    margin-bottom: .5rem;
+}
+
+.login-user,
+.login-pass {
+    border: none;
+    border-radius: ($size-base / 2);
+    padding: $size-base;
+    width: ($size-base * 30);
+    background: lighten($bg-color, 10%);
+    @include transition(background .3s ease-in-out);
+
+    &:focus {
+        background: lighten($bg-color, 20%);
     }
 }
 
 .login-submit {
-    cursor: pointer;
+    color: $color900;
+    margin-top: .5em;
+    padding: $size-base;
+    border: none;
+    border-radius: ($size-base / 2);
+    width: ($size-base * 25);
+    background: $color400;
+    transition: background .3s, transform .1s;
+
+    &:hover {
+        background: $color300;
+    }
+    &:active {
+        transform: scale(0.95);
+    }
 }
