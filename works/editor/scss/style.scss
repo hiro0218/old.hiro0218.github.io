@@ -71,6 +71,8 @@ textarea {
     border: none;
     resize: none;
     padding: 0 .5rem;
+    line-height: 1.6em;
+
     &:focus {
         outline: none !important;
     }
@@ -83,4 +85,5 @@ textarea {
     font-family: $font-family;
     overflow: auto;
     height: 100vh;
+    line-height: 1.6em;
 }

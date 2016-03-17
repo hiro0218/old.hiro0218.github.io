@@ -5,17 +5,21 @@ Mar-kun
 作者hiro専用のオンラインMarkdownエディタです。<br>
 自分の使い勝手の良いように実装していきます。
 
-3月に作ったのでMar-kun
+3月に作ったので"Mar-kun"
 
 ## 仕様
 ### Markdownパーサ
-[marked](https://github.com/chjj/marked)
+* [marked](https://github.com/chjj/marked)
 
 ### プレビュスタイル
-[github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
+* [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 
 
 ## update
+### v0.3.0
+* `localStorage`に自動保存・読込するようにした
+    * 60秒毎に保存
+
 ### v0.2.0
 * タブ入力を有効にした
 

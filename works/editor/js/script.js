@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", function(){
     var timer = null;
     var prev_val = editor.value;
 
+    // ストレージから読み込む
+    loadStorage(editor);
+
+    // ストレージに保存する
+    window.setInterval(function(){
+        saveStorage(editor);
+    }, 60000);
+
     marked.setOptions({
         langPrefix: 'language-',
         sanitize: true,
@@ -43,11 +51,21 @@ document.addEventListener("DOMContentLoaded", function(){
         window.clearInterval(timer);
     }, false);
 
-    // タブ入力を有効にする
-    enableInsertTAB(editor);
+    // キーを監視する
+    monitoringKey(editor);
+
+    // ページ移動の確認
+    // window.onbeforeunload = function(event){
+    //     event = event || window.event;
+    //     event.returnValue = 'Confirmation';
+    // };
 
 }, false);
 
+function monitoringKey(editor) {
+    // タブ入力を有効にする
+    enableInsertTAB(editor);
+}
 
 function enableInsertTAB(element) {
     element.onkeydown = function(e) {
@@ -63,4 +81,12 @@ function enableInsertTAB(element) {
             return false;
         }
     };
+}
+
+function saveStorage(element) {
+    localStorage.setItem('markunVal', element.value);
+}
+
+function loadStorage(element) {
+    element.innerHTML = localStorage.getItem('markunVal');
 }
