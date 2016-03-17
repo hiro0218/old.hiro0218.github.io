@@ -1,0 +1,21 @@
+{
+  "name": "editor",
+  "homepage": "http://b.0218.jp/",
+  "authors": [
+    "hiro <hiro@0218.jp>"
+  ],
+  "description": "hiro's Markdown Editor",
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "github-markdown-css": "^2.2.1",
+    "marked": "^0.3.5"
+  }
+}
