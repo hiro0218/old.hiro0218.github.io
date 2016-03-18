@@ -60,11 +60,21 @@ body {
     @include outer-container;
 }
 
+.tool {
+    @include span-columns(12);
+}
+
 .editor-side,
 .preview-side {
     @include span-columns(6);
 }
 
+// tool
+.btn {
+    
+}
+
+// editor
 textarea {
     min-height: 100vh;
     width: 100%;
@@ -78,6 +88,7 @@ textarea {
     }
 }
 
+// preview
 .preview-side {
     overflow: hidden;
 }
