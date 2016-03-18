@@ -2,10 +2,8 @@ window.onload = function() {
     "use strict";
 
     // 宣言
-    var editor   = document.getElementById("editor");
-    var result   = document.getElementById("result");
-    var btnSave  = document.getElementsByClassName('btn-save')[0];
-    var btnClear = document.getElementsByClassName('btn-clear')[0];
+    var editor = document.getElementById("editor");
+    var result = document.getElementById("result");
     var timer = null;
     var prev_val = editor.value;
 
@@ -60,22 +58,6 @@ window.onload = function() {
     //     event.returnValue = 'Confirmation';
     // };
 
-    // tool
-    btnSave.addEventListener("click", function(){
-        if (confirm("Save?")) {
-            saveStorage(editor);
-            keyup(editor, result);
-        }
-    }, false);
-
-    btnClear.addEventListener("click", function(){
-        if (confirm("Clear?")) {
-            editor.value = "";
-            clearStorage();
-            keyup(editor, result);
-        }
-    }, false);
-
 };
 
 function keyup(from, to) {
@@ -122,8 +104,4 @@ function saveStorage(element) {
 
 function loadStorage(element) {
     element.innerHTML = localStorage.getItem('markunVal');
-}
-
-function clearStorage() {
-    localStorage.removeItem('markunVal');
 }
