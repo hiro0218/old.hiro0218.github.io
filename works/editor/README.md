@@ -19,6 +19,9 @@ http://hiro0218.github.io/works/editor/
 
 
 ## update
+### v0.4.0
+* 保存ボタン、クリアボタンを追加
+
 ### v0.3.0
 * `localStorage`に自動保存・読込するようにした
     * 60秒毎に保存

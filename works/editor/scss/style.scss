@@ -1,5 +1,5 @@
 @import "bourbon/bourbon";
-@import "scss/neat/neat";
+@import "neat/neat";
 
 /////
 
@@ -58,6 +58,10 @@ body {
 
 .container {
     @include outer-container;
+}
+
+.tool {
+    @include span-columns(12);
 }
 
 .editor-side,
