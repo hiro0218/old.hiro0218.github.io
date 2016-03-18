@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+window.onload = function() {
     "use strict";
 
     // 宣言
@@ -17,18 +17,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
     marked.setOptions({
         langPrefix: 'language-',
-        sanitize: true,
         breaks: true
     });
 
     // テキスト入力を反映させる
-    function keyup() {
-        result.innerHTML = marked(editor.value);
-    }
+    keyup(editor, result);
 
     // 初回実行
     if (editor.value) {
-        keyup();
+        keyup(editor, result);
     }
 
     // フォーカス
@@ -39,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
             var new_val = editor.value;
             // 変更があった場合
             if( prev_val != editor.value ){
-                keyup();
+                keyup(editor, result);
             }
             prev_val = new_val;
         }, 1000);
@@ -48,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // アウトフォーカス
     editor.addEventListener("blur", function(){
-        window.clearInterval(timer);
+        //window.clearInterval(timer);
+        keyup(editor, result);
     }, false);
 
     // キーを監視する
@@ -60,7 +58,24 @@ document.addEventListener("DOMContentLoaded", function(){
     //     event.returnValue = 'Confirmation';
     // };
 
-}, false);
+};
+
+function keyup(from, to) {
+    var text = from.value;
+
+    // エスケープされていない<script>タグを消去
+    text = stripScriptTag(text);
+
+    to.innerHTML = marked(text);
+}
+
+function stripScriptTag(text) {
+    var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+    while(SCRIPT_REGEX.test(text)) {
+        text = text.replace(SCRIPT_REGEX, "");
+    }
+    return text;
+}
 
 function monitoringKey(editor) {
     // タブ入力を有効にする
