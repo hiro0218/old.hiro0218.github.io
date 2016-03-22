@@ -3,9 +3,15 @@
 
 /////
 
+// framework variable
 $em-base: 16px;
 $font-size-root: $em-base;
+$gutter: golden-ratio(0em, 0);
+$fg-gutter: $gutter;
+
+// original variable
 $font-family: 'Open Sans',Helvetica Neue,Arial,游ゴシック,YuGothic,Noto Sans,Hiragino Sans,Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN W3,メイリオ,Meiryo,sans-serif;
+$tool-height: 2rem;
 
 // color
 $color50: #fafafa;
@@ -63,6 +69,7 @@ body {
 .tool {
     @include span-columns(12);
     padding: 0 .5rem;
+    height: $tool-height;
 }
 
 .editor-side,
@@ -77,7 +84,7 @@ body {
 }
 
 #editor {
-    min-height: 100vh;
+    height: calc(100vh - #{$tool-height});
     width: 100%;
     border: none;
     resize: none;
@@ -93,11 +100,11 @@ body {
     overflow: hidden;
 }
 .markdown-body {
+    height: calc(100vh - #{$tool-height});
     font-family: $font-family;
     overflow: auto;
-    height: 100vh;
     line-height: 1.6em;
-    padding-right: .5rem;
+    padding: 0 .5rem;
 }
 
 
