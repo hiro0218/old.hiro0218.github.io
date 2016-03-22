@@ -1,13 +1,14 @@
 Mar-kun
 ===
 
-## overview
-作者hiro専用のオンラインMarkdownエディタです。<br>
-自分の使い勝手の良いように実装していきます。
+## 概要
+作者hiro専用のオンラインMarkdownエディタです。<br>自分の使い勝手の良いように実装していきます。
+
+自分のブログ用に最適化されています。
 
 3月に作ったので"Mar-kun"
 
-## Demo
+## デモ
 http://hiro0218.github.io/works/editor/
 
 ## 仕様
@@ -16,12 +17,15 @@ http://hiro0218.github.io/works/editor/
 
 ### プレビュスタイル
 * [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
+* [Prism.js](http://prismjs.com)
 
 ### 入力補助
 * [Behave.js](https://github.com/jakiestfu/Behave.js)
 
+## 更新履歴
+### v0.7.0
+* Prism.js(コードハイライター) を導入
 
-## update
 ### v0.6.0
 * Behave.js を導入
     * タブ入力(Tabキー・Tab+Shiftキー)、関数内のオートインデント…等に対応

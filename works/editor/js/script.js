@@ -68,7 +68,7 @@ window.onload = function() {
     }, false);
 
     // キーを監視する
-    monitoringKey(editor);
+    //monitoringKey(editor);
 
     // ページ移動の確認
     // window.onbeforeunload = function(event){
@@ -125,6 +125,9 @@ function getMarkedValue(value) {
 
 function keyup(from, to) {
     to.innerHTML = getMarkedValue(from.value);
+
+    // Prism.js(Highlight) re-render
+    Prism.highlightAll();
 }
 
 function stripScriptTag(text) {
