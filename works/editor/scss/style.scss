@@ -62,11 +62,18 @@ body {
 
 .tool {
     @include span-columns(12);
+    padding: 0 .5rem;
 }
 
 .editor-side,
 .preview-side {
     @include span-columns(6);
+}
+
+#chara-count {
+    float: right;
+    color: $color600;
+    font-size: .85rem;
 }
 
 #editor {
@@ -90,6 +97,7 @@ body {
     overflow: auto;
     height: 100vh;
     line-height: 1.6em;
+    padding-right: .5rem;
 }
 
 

@@ -23,6 +23,10 @@ http://hiro0218.github.io/works/editor/
 * [Behave.js](https://github.com/jakiestfu/Behave.js)
 
 ## 更新履歴
+### v0.8.0
+* 文字数カウント機能を導入
+    * プレビュー後のテキスト(HTML)の文字数を表示
+
 ### v0.7.0
 * Prism.js(コードハイライター) を導入
 

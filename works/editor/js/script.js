@@ -6,6 +6,7 @@ window.onload = function() {
     var result = document.getElementById("result");
     var modal  = document.getElementById('modal');
     var output  = document.getElementById('export');
+    var charaCount = document.getElementById('chara-count');
     var btnSave   = document.getElementsByClassName('btn-save')[0];
     var btnClear  = document.getElementsByClassName('btn-clear')[0];
     var btnExport = document.getElementsByClassName('btn-export')[0];
@@ -39,11 +40,11 @@ window.onload = function() {
     });
 
     // テキスト入力を反映させる
-    keyup(editor, result);
+    keyup(editor, result, charaCount);
 
     // 初回実行
     if (editor.value) {
-        keyup(editor, result);
+        keyup(editor, result, charaCount);
     }
 
     // フォーカス
@@ -54,7 +55,7 @@ window.onload = function() {
             var new_val = editor.value;
             // 変更があった場合
             if( prev_val != editor.value ){
-                keyup(editor, result);
+                keyup(editor, result, charaCount);
             }
             prev_val = new_val;
         }, 1000);
@@ -64,7 +65,7 @@ window.onload = function() {
     // アウトフォーカス
     editor.addEventListener("blur", function(){
         //window.clearInterval(timer);
-        keyup(editor, result);
+        keyup(editor, result, charaCount);
     }, false);
 
     // キーを監視する
@@ -80,7 +81,7 @@ window.onload = function() {
     btnSave.addEventListener("click", function(){
         if (confirm("Save?")) {
             saveStorage(editor);
-            keyup(editor, result);
+            keyup(editor, result, charaCount);
         }
     }, false);
 
@@ -88,7 +89,7 @@ window.onload = function() {
         if (confirm("Clear?")) {
             editor.value = "";
             clearStorage();
-            keyup(editor, result);
+            keyup(editor, result, charaCount);
         }
     }, false);
 
@@ -123,8 +124,15 @@ function getMarkedValue(value) {
     return marked(value);
 }
 
-function keyup(from, to) {
-    to.innerHTML = getMarkedValue(from.value);
+function keyup(from, to, count) {
+    // HTML変換
+    var mkval = getMarkedValue(from.value);
+
+    // 文字数カウント
+    countResultText(mkval, count);
+
+    // 反映
+    to.innerHTML = mkval;
 
     // Prism.js(Highlight) re-render
     Prism.highlightAll();
@@ -136,6 +144,10 @@ function stripScriptTag(text) {
         text = text.replace(SCRIPT_REGEX, "");
     }
     return text;
+}
+
+function countResultText(val, target) {
+    target.innerHTML = val.length;
 }
 
 function monitoringKey(editor) {
