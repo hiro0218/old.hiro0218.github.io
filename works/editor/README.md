@@ -17,8 +17,16 @@ http://hiro0218.github.io/works/editor/
 ### プレビュスタイル
 * [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 
+### 入力補助
+* [Behave.js](https://github.com/jakiestfu/Behave.js)
+
 
 ## update
+### v0.6.0
+* Behave.js を導入
+    * タブ入力(Tabキー・Tab+Shiftキー)、関数内のオートインデント…等に対応
+* 自前実装のタブ入力を除去
+
 ### v0.5.0
 * 変換後の HTML エクスポート機能を実装
 

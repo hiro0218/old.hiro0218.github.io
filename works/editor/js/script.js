@@ -12,6 +12,19 @@ window.onload = function() {
     var timer = null;
     var prev_val = editor.value;
 
+    // Behave.js
+    window.editor = new Behave({
+        textarea: editor,
+        replaceTab: true,
+        softTabs: true,
+        tabSize: 4,
+        autoOpen: true,
+        overwrite: true,
+        autoStrip: true,
+        autoIndent: true,
+        fence: false
+    });
+
     // ストレージから読み込む
     loadStorage(editor);
 
@@ -124,24 +137,24 @@ function stripScriptTag(text) {
 
 function monitoringKey(editor) {
     // タブ入力を有効にする
-    enableInsertTAB(editor);
+    // enableInsertTAB(editor);
 }
 
-function enableInsertTAB(element) {
-    element.onkeydown = function(e) {
-        if (e.keyCode === 9) {
-            var val = this.value;
-            var start = this.selectionStart;
-            var end = this.selectionEnd;
-
-            this.value = val.substring(0, start) + '\t' + val.substring(end);
-
-            this.selectionStart = this.selectionEnd = start + 1;
-
-            return false;
-        }
-    };
-}
+// function enableInsertTAB(element) {
+//     element.onkeydown = function(e) {
+//         if (e.keyCode === 9) {
+//             var val = this.value;
+//             var start = this.selectionStart;
+//             var end = this.selectionEnd;
+//
+//             this.value = val.substring(0, start) + '\t' + val.substring(end);
+//
+//             this.selectionStart = this.selectionEnd = start + 1;
+//
+//             return false;
+//         }
+//     };
+// }
 
 function saveStorage(element) {
     localStorage.setItem('markunVal', element.value);
