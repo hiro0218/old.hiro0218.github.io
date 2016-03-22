@@ -19,6 +19,12 @@ http://hiro0218.github.io/works/editor/
 
 
 ## update
+### v0.5.0
+* 変換後の HTML エクスポート機能を実装
+
+### v0.4.1
+* Normalize.css を更新
+
 ### v0.4.0
 * 保存ボタン、クリアボタンを追加
 

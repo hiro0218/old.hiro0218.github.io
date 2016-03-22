@@ -2,10 +2,13 @@ window.onload = function() {
     "use strict";
 
     // 宣言
-    var editor   = document.getElementById("editor");
-    var result   = document.getElementById("result");
-    var btnSave  = document.getElementsByClassName('btn-save')[0];
-    var btnClear = document.getElementsByClassName('btn-clear')[0];
+    var editor = document.getElementById("editor");
+    var result = document.getElementById("result");
+    var modal  = document.getElementById('modal');
+    var output  = document.getElementById('export');
+    var btnSave   = document.getElementsByClassName('btn-save')[0];
+    var btnClear  = document.getElementsByClassName('btn-clear')[0];
+    var btnExport = document.getElementsByClassName('btn-export')[0];
     var timer = null;
     var prev_val = editor.value;
 
@@ -76,15 +79,39 @@ window.onload = function() {
         }
     }, false);
 
+    btnExport.addEventListener("click", function(){
+        // export html
+        output.value = getMarkedValue(editor.value);
+
+        // show modal
+        modal.style.display = "block";
+    }, false);
+
+    output.addEventListener("focus", function(){
+        output.select();
+    }, false);
+
+
+    // Modal
+    window.addEventListener("click", function(e){
+        if (e.target == modal) {
+            // hide modal
+            modal.style.display = "none";
+        }
+    }, false);
+
 };
 
-function keyup(from, to) {
-    var text = from.value;
-
+// other function
+function getMarkedValue(value) {
     // エスケープされていない<script>タグを消去
-    text = stripScriptTag(text);
+    value = stripScriptTag(value);
 
-    to.innerHTML = marked(text);
+    return marked(value);
+}
+
+function keyup(from, to) {
+    to.innerHTML = getMarkedValue(from.value);
 }
 
 function stripScriptTag(text) {
