@@ -6,12 +6,15 @@
 // framework variable
 $em-base: 16px;
 $font-size-root: $em-base;
+$font-size-sm: .85rem;
+$font-size-xs: .75rem;
 $gutter: golden-ratio(0em, 0);
 $fg-gutter: $gutter;
 
 // original variable
 $font-family: 'Open Sans',Helvetica Neue,Arial,游ゴシック,YuGothic,Noto Sans,Hiragino Sans,Hiragino Kaku Gothic ProN,ヒラギノ角ゴ ProN W3,メイリオ,Meiryo,sans-serif;
-$tool-height: 2rem;
+$tool-height: 2.5rem;
+$header-height: 2rem;
 
 // color
 $color50: #fafafa;
@@ -26,7 +29,7 @@ $color800:#424242;
 $color900:#212121;
 
 $text-color: $color800;
-$bg-color: $color200;
+$bg-color:   $color200;
 
 /////
 
@@ -66,30 +69,65 @@ body {
     @include outer-container;
 }
 
+// tool
 .tool {
     @include span-columns(12);
-    padding: 0 .5rem;
+    padding: .25rem .5rem;
     height: $tool-height;
 }
 
+.btn {
+    color: $color800;
+    font-size: $font-size-sm;
+    border: 1px solid $color500;
+    background: $color300;
+    padding: .25rem;
+    border-radius: 2px;
+    transition: background .3s, transform .1s;
+
+    &:hover {
+        background: $color400;
+    }
+    &:focus {
+        outline: 0;
+        transform: scale(.95);
+    }
+}
+
+.count {
+    float: right;
+    font-size: $font-size-xs;
+    line-height: 2;
+}
+#chara-count {
+    color: $color600;
+}
+
+// main
 .editor-side,
 .preview-side {
     @include span-columns(6);
+
+    .header {
+         @include span-columns(6 of 6);
+         font-size: $font-size-xs;
+         height: $header-height;
+         padding: .25rem .5rem;
+         box-shadow: 0 0 3px 0 rgba(0,0,0,.26);
+    }
 }
 
-#chara-count {
-    float: right;
-    color: $color600;
-    font-size: .85rem;
+.editor-side {
+    overflow: hidden;
 }
-
-#editor {
-    height: calc(100vh - #{$tool-height});
+#editor {  // Textarea
+    height: calc(100vh - #{$tool-height} - #{$header-height});
     width: 100%;
     border: none;
     resize: none;
-    padding: 0 .5rem;
+    padding: .25rem .5rem;
     line-height: 1.6em;
+    margin-top: 3px; // for box-shadow
 
     &:focus {
         outline: none !important;
@@ -100,11 +138,11 @@ body {
     overflow: hidden;
 }
 .markdown-body {
-    height: calc(100vh - #{$tool-height});
+    height: calc(100vh - #{$tool-height} - #{$header-height});
     font-family: $font-family;
     overflow: auto;
     line-height: 1.6em;
-    padding: 0 .5rem;
+    padding: .25rem .5rem;
 }
 
 

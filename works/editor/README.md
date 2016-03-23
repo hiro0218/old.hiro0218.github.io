@@ -25,6 +25,7 @@ http://hiro0218.github.io/works/editor/
 ## 更新履歴
 
 ### v0.8.1
+### v0.8.2
 * スタイルの調整
 
 ### v0.8.0
