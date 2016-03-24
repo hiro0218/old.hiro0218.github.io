@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
     <link rel="stylesheet" href="vendor/github-markdown-css/github-markdown.css">
     <link rel="stylesheet" href="vendor/PrismJS/prism.css">
@@ -26,7 +26,10 @@
             <div class="count" title="プレビュー後の文字数">Words: <span id="chara-count"></span></div>
         </div>
         <div class="editor-side">
-            <div class="header">Markdown</div>
+            <div class="header">
+                <span>Markdown</span>
+                <input type="button" value=">>" class="btn btn-toggle" />
+            </div>
             <textarea id="editor" placeholder="Please enter the text here." autofocus></textarea>
         </div>
         <div class="preview-side">

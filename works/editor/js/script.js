@@ -10,6 +10,7 @@ window.onload = function() {
     var btnSave   = document.getElementsByClassName('btn-save')[0];
     var btnClear  = document.getElementsByClassName('btn-clear')[0];
     var btnExport = document.getElementsByClassName('btn-export')[0];
+    var btnToggle = document.getElementsByClassName('btn-toggle')[0];
     var timer = null;
     var prev_val = editor.value;
 
@@ -68,9 +69,6 @@ window.onload = function() {
         keyup(editor, result, charaCount);
     }, false);
 
-    // キーを監視する
-    //monitoringKey(editor);
-
     // ページ移動の確認
     // window.onbeforeunload = function(event){
     //     event = event || window.event;
@@ -105,6 +103,9 @@ window.onload = function() {
         output.select();
     }, false);
 
+    btnToggle.addEventListener("click", function(e){
+        togglePreview(e.target);
+    }, false);
 
     // Modal
     window.addEventListener("click", function(e){
@@ -150,9 +151,19 @@ function countResultText(val, target) {
     target.innerHTML = val.length;
 }
 
-function monitoringKey(editor) {
-    // タブ入力を有効にする
-    // enableInsertTAB(editor);
+function togglePreview(target) {
+    var preview = document.getElementsByClassName('preview-side')[0];
+    var editor  = document.getElementsByClassName('editor-side')[0];
+
+    if ( preview.style.display == "none" ) {
+        preview.style.display = "";
+        editor.style.width = "";
+        target.value = ">>";
+    } else {
+        preview.style.display = "none";
+        editor.style.width = "100%";
+        target.value = "<<";
+    }
 }
 
 // function enableInsertTAB(element) {
